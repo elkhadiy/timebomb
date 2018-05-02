@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Yassine El Khadiri">
+
+		<title>TimeBomb</title>
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+            crossorigin="anonymous"
+        >
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/mofo.css">
+
+        <script src="js/client.js"></script>
+
+        <script>
+          var toggle = function() {
+              var mydiv = document.getElementById('rules');
+              if (mydiv.style.display === 'block' || mydiv.style.display === '')
+                mydiv.style.display = 'none';
+              else
+                mydiv.style.display = 'block'
+          }
+        </script>
+	</head>
+
+	<body>
+        <h1 class="display-1" style="font-family: 'Orbitron', sans-setif;">TimeBomb</h1>
+        
+        <div id="sessionInfo">
+            <form>
+                <div class="input-group mb-3">
+                    <input
+                           type="text"
+                           class="form-control"
+                           placeholder="Choose a Username"
+                           name="user_name"
+                    >
+                    <div class="input-group-append">
+                        <input
+                               type="submit"
+                               value="Sign in"
+                               class="btn btn-outline-secondary"
+                               onclick="signUp(); return false;"
+                        >
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div id="createGame" style="display: none;">
+            <hr>
+            <form>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Create a Game</span>
+                    </div>
+                    <input
+                           type="text"
+                           class="form-control"
+                           placeholder="Name"
+                           name="game_name"
+                    >
+                    <select class="custom-select" name="nb_players">
+                        <option disabled selected>Number of players</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <div class="input-group-append">
+                        <input
+                               type="submit"
+                               value="Create"
+                               class="btn btn-outline-secondary"
+                               onclick="createGame(); return false;"
+                        >
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div id="gameRules">
+            <hr>
+            <button class="btn btn-outline-primary btn-lg btn-block" onclick="toggle();">
+                Show/Hide Rules
+            </button>
+            <div id="rules" style="display: none;">
+            <table class="table table-striped">
+                <thead>
+                    <th>Number of players</th>
+                    <th>Safe Cards</th>
+                    <th>Success Cards</th>
+                    <th>Bomb Cards</th>
+                    <th>Good boys</th>
+                    <th>Baddies</th>
+                </thead>
+                <tbody>
+                    <tr><td>4<sup>*</sup></td><td>15</td><td>4</td><td>1</td><td>3</td><td>2</td></tr>
+                    <tr><td>5</td><td>19</td><td>5</td><td>1</td><td>3</td><td>2</td></tr>
+                    <tr><td>6</td><td>23</td><td>6</td><td>1</td><td>4</td><td>2</td></tr>
+                    <tr><td>7<sup>*</sup></td><td>27</td><td>7</td><td>1</td><td>5</td><td>3</td></tr>
+                    <tr><td>8</td><td>31</td><td>8</td><td>1</td><td>5</td><td>3</td></tr>
+                </tbody>
+            </table>
+            <sup>* Number of baddies is either # or # -1</sup>
+            </div>
+        </div>
+        
+	</body>
+
+</html>
